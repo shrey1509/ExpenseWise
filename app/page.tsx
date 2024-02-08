@@ -60,7 +60,7 @@ export default function Home() {
     options: defaultDonutOptions,
   });
   return (
-    <main className=" grid grid-cols-3 gap-4 h-full overflow-y-auto">
+    <div className=" grid grid-cols-3 gap-4 h-full overflow-y-auto xl:pr-2" id="custom-scroll">
       <div className="box flex flex-col gap-2 p-6 text-sm">
         <div className="font-medium text-base">Monthly Income</div>
         <div className=" text-xl font-semibold">Rs.10,000</div>
@@ -104,6 +104,6 @@ export default function Home() {
           <div className=" font-light"> 7 Jun 2023, 5 PM</div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

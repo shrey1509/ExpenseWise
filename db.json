@@ -1,1 +1,1 @@
-{"transactions":[{"name":{"value":"asd","error":false},"amount":{"value":"4","error":false},"category":{"value":"SU","error":false},"type":{"value":"received","error":false},"description":{"value":"Yuh","error":false}},{"name":"asd","amount":"2","category":"GE","type":"received","description":"asd"}]}
+{"transactions":[{"name":"Netflix","amount":"650","category":"Subscription","type":"sent","date":"2024-02-09T19:19:21.813Z","description":"Netflix Monthly"}]}

@@ -7,7 +7,7 @@
  }
  #custom-scroll::-webkit-scrollbar-track
 {
-	-webkit-box-shadow: inset 0 0 0.2rem #3c3c3c;
+	-webkit-box-shadow: inset 0 0 0.2rem #7b7b7b;
 	background-color: #eff0f2;
 }
 #custom-scroll::-webkit-scrollbar
@@ -18,5 +18,11 @@
 
 #custom-scroll::-webkit-scrollbar-thumb
 {
-	background-color: #3c3c3c;
+	background-color: #7b7b7b;
+}
+.rdt{
+	@apply block p-2.5 w-full text-sm bg-gray-50 rounded-lg border border-gray-300  focus:border-blue-500 
+}
+.rdtPicker{
+	@apply !p-4 rounded-xl
 }

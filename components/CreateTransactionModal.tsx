@@ -1,16 +1,17 @@
 import { useState,useContext } from "react"
 import Image from "next/image";
 import { ModalContext } from "./MainComponent";
+import Datetime from 'react-datetime';
+import "react-datetime/css/react-datetime.css";
 
 function CreateTransactionModal() {
     const modal = useContext(ModalContext);
-    const defaultInputs = {name:"",amount:0,category:"GE",type:"sent",description:""}
+    const defaultInputs = {name:"",amount:0,category:"GE",type:"sent",date:new Date(),description:""}
     const [transactionInputs, setTransactionInputs] = useState(defaultInputs);
     const [errorFor, setErrorFor] = useState({name:false,amount:false});
+    const [showDate,setShowDate] = useState(false)
 
-    const handleChange = (event:any) => {
-        const name = event.target.name;
-        const value = event.target.value;
+    const handleChange = (name:string,value:any) => {
         setTransactionInputs(values => ({...values, [name]: value}))
     }
 
@@ -60,37 +61,38 @@ function CreateTransactionModal() {
                         <div className="grid gap-4 mb-4 grid-cols-2">
                             <div className="col-span-2">
                                 <label htmlFor="name" className="block mb-2 text-sm font-medium ">Name</label>
-                                <input type="text" name="name" id="name" className={`bg-gray-50 border ${errorFor.name?'border-red-500':'border-gray-300'} text-sm rounded-lg focus:border-primary-600 block w-full p-2.5`} placeholder="Enter name of sender/recipient" value={transactionInputs.name} required onChange={(e)=>handleChange(e)}/>
+                                <input type="text" name="name" id="name" className={`bg-gray-50 border ${errorFor.name?'border-red-500':'border-gray-300'} text-sm rounded-lg focus:border-primary-600 block w-full p-2.5`} placeholder="Enter name of sender/recipient" value={transactionInputs.name} required onChange={(e)=>handleChange(e.target.name,e.target.value)}/>
                             </div>
                             <div className="col-span-2 sm:col-span-1">
                                 <label htmlFor="amount" className="block mb-2 text-sm font-medium ">Amount</label>
-                                <input type="number" name="amount" id="amount" className={`bg-gray-50 border ${errorFor.amount?'border-red-500':'border-gray-300'} text-gray-900 text-sm rounded-lg focus:border-primary-600 block w-full p-2.5 `} placeholder="Enter amount in Rs." min={0} required value={transactionInputs.amount} onChange={(e)=>handleChange(e)}/>
+                                <input type="number" name="amount" id="amount" className={`bg-gray-50 border ${errorFor.amount?'border-red-500':'border-gray-300'} text-gray-900 text-sm rounded-lg focus:border-primary-600 block w-full p-2.5 `} placeholder="Enter amount in Rs." min={0} required value={transactionInputs.amount} onChange={(e)=>handleChange(e.target.name,e.target.value)}/>
                             </div>
                             <div className="col-span-2 sm:col-span-1">
                                 <label htmlFor="category" className="block mb-2 text-sm font-medium text-gray-900 ">Category</label>
-                                <select id="category" name="category" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-primary-500 block w-full p-2.5" value={transactionInputs.category} onChange={(e)=>handleChange(e)}>
-                                    <option value="GE">General</option>
-                                    <option value="FA">Family</option>
-                                    <option value="SU">Subscription</option>
-                                    <option value="BI">Bill Payment</option>
-                                    <option value="LE">Leisure</option>
-                                    <option value="TR">Travel</option>
+                                <select id="category" name="category" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-primary-500 block w-full p-2.5" value={transactionInputs.category} onChange={(e)=>handleChange(e.target.name,e.target.value)}>
+                                    <option value="General">General</option>
+                                    <option value="Family">Family</option>
+                                    <option value="Subscription">Subscription</option>
+                                    <option value="Bill Payment">Bill Payment</option>
+                                    <option value="Leisure">Leisure</option>
+                                    <option value="Travel">Travel</option>
                                 </select>
                             </div>
                             <div className="col-span-2 flex gap-2">
                                 <div className="flex items-center">
-                                    <input defaultChecked={transactionInputs.type=="sent"?true:false} id="radio-1" onChange={(e)=>handleChange(e)} type="radio" value="sent" name="type" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500  focus:ring-2 "/>
+                                    <input defaultChecked={transactionInputs.type=="sent"?true:false} id="radio-1" onChange={(e)=>handleChange(e.target.name,e.target.value)} type="radio" value="sent" name="type" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500  focus:ring-2 "/>
                                     <label htmlFor="radio-1" className="ms-2 text-sm font-medium ">Sent</label>
                                 </div>
                                 <div className="flex items-center">
-                                    <input defaultChecked={transactionInputs.type=="received"?true:false} id="radio-2" onChange={(e)=>handleChange(e)} type="radio" value="received" name="type" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500  focus:ring-2 "/>
+                                    <input defaultChecked={transactionInputs.type=="received"?true:false} id="radio-2" onChange={(e)=>handleChange(e.target.name,e.target.value)} type="radio" value="received" name="type" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500  focus:ring-2 "/>
                                     <label htmlFor="radio-2" className="ms-2 text-sm font-medium ">Received</label>
                                 </div>
 
                             </div>
+                            <Datetime value={transactionInputs.date} onChange={(e:any)=>handleChange("date",e.toDate())}/>
                             <div className="col-span-2">
                                 <label htmlFor="description" className="block mb-2 text-sm font-medium ">Product Description</label>
-                                <textarea name="description" value={transactionInputs.description} id="description" rows={2} className="block p-2.5 w-full text-sm bg-gray-50 rounded-lg border border-gray-300  focus:border-blue-500 " placeholder="Write product description here" onChange={(e)=>handleChange(e)}></textarea>                    
+                                <textarea name="description" value={transactionInputs.description} id="description" rows={2} className="block p-2.5 w-full text-sm bg-gray-50 rounded-lg border border-gray-300  focus:border-blue-500 " placeholder="Write product description here" onChange={(e)=>handleChange(e.target.name,e.target.value)}></textarea>                    
                             </div>
                         </div>
                         <button type="submit" className="text-white inline-flex items-center bg-secondary hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">

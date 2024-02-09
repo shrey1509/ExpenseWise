@@ -2,6 +2,14 @@
 import { useState,createContext } from "react";
 import CreateTransactionModal from "./CreateTransactionModal";
 
+export type TransactionType = {
+    name: string,
+    amount: string,
+    category: string,
+    type: string,
+    date: string,
+    description: string
+}
 
 type ModalType = {
     showModal: boolean,
@@ -23,7 +31,7 @@ function MainComponent({children}:{children:any}) {
         <ModalContext.Provider value={{showModal,setShowModal}}>
             {children}
             <CreateTransactionModal/>
-            <div onClick={()=>setShowModal((prev)=>true)} className=" cursor-pointer rounded-full shadow-lg bg-darkBg text-white px-6 py-3 fixed bottom-16 right-16">
+            <div onClick={()=>setShowModal((prev)=>true)} className=" cursor-pointer rounded-full shadow-lg bg-secondary text-white px-6 py-3 fixed bottom-16 right-16">
                 + Add new transaction
             </div>
         </ModalContext.Provider>

@@ -81,14 +81,15 @@ npm start
 ```sh
 npm run dev
 ```
-
-3. Add transactions and check stats
    
-4. Go to this URL to view the app
+3. Go to this URL to view the app
 
 ```sh
 http://localhost:3000
 ```
+
+4. Add transactions and check stats
+
 
 
 _Note: This app uses the db.json file in the server directory as a placeholder for a database, sample data is present for convenience._

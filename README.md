@@ -34,7 +34,7 @@ To get a local copy up and running follow these simple steps.
 * npm
 
 ```sh
-  npm install npm@latest -g
+npm install npm@latest -g
 ```
 
 ### Installation
@@ -43,27 +43,27 @@ To get a local copy up and running follow these simple steps.
 1. Clone the repo
 
 ```sh
-     https://github.com/shrey1509/ExpenseWise.git
+https://github.com/shrey1509/ExpenseWise.git
 ```
 
 2. Go into server folder and install packages
 
 ```sh
-   cd server
+cd server
 ```
 
 ```sh
-   npm install
+npm install
 ```
 
 3. Open another terminal and do the same for client
 
 ```sh
-   cd client
+cd client
 ```
 
 ```sh
-   npm install
+npm install
 ```
 
 <!-- USAGE EXAMPLES -->
@@ -73,16 +73,22 @@ To get a local copy up and running follow these simple steps.
 1. Run the Express server from server terminal
 
 ```sh
-   npm start
+npm start
 ```
 
 2. Run the NextJS app from client terminal
 
 ```sh
-   npm run dev
+npm run dev
 ```
 
 3. Add transactions and check stats
+   
+4. Go to this URL to view the app
+
+```sh
+http://localhost:3000
+```
 
 
 _Note: This app uses the db.json file in the server directory as a placeholder for a database, sample data is present for convenience._

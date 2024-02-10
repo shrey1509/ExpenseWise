@@ -27,48 +27,44 @@ ExpenseWise is a simple personal finance tracking, to add transactions and track
 
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
 * npm
 
-  ```sh
-
-  npm install npm@latest -g
-
-  ```
+```sh
+npm install npm@latest -g
+```
 
 ### Installation
 
 
 1. Clone the repo
 
-   ```sh
-
-   git clone https://github.com/your_username_/Project-Name.git
-
-   ```
+```sh
+https://github.com/shrey1509/ExpenseWise.git
+```
 
 2. Go into server folder and install packages
 
-    ```sh
-   cd server
-   ```
+```sh
+cd server
+```
 
-   ```sh
-   npm install
-   ```
+```sh
+npm install
+```
 
 3. Open another terminal and do the same for client
 
-      ```sh
-   cd client
-   ```
+```sh
+cd client
+```
 
-   ```sh
-   npm install
-   ```
+```sh
+npm install
+```
 
 <!-- USAGE EXAMPLES -->
 
@@ -76,21 +72,24 @@ To get a local copy up and running follow these simple example steps.
 
 1. Run the Express server from server terminal
 
-   ```sh
-
-   npm start
-
-   ```
+```sh
+npm start
+```
 
 2. Run the NextJS app from client terminal
 
-   ```sh
+```sh
+npm run dev
+```
+   
+3. Go to this URL to view the app
 
-   npm run dev
+```sh
+http://localhost:3000
+```
 
-   ```
+4. Add transactions and check stats
 
-3. Add transactions and check stats
 
 
 _Note: This app uses the db.json file in the server directory as a placeholder for a database, sample data is present for convenience._

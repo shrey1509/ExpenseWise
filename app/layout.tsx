@@ -33,7 +33,9 @@ export default function RootLayout({
             <Navbar />
           </nav>
           <main className=" pt-20 p-defaultMobile xl:p-default w-full">
-            <MainComponent children={children} />
+            <MainComponent>
+              {children}
+            </MainComponent>
           </main> 
         </div>
         {children}

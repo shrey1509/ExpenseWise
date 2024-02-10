@@ -1,31 +1,32 @@
 'use client'
-import { useEffect,useState, useContext} from "react";
+import { useEffect,useState, useContext,useRef } from "react";
 import { TransactionType } from "@/components/MainComponent";
 import { ModalContext } from "@/components/MainComponent";
 import TransactionRow from "@/components/TransactionRow";
 
 function Transactions() {
     const [transactions,setTransactions] = useState<TransactionType[]>([])
-    const modal = useContext(ModalContext)
+    const modal = useRef(useContext(ModalContext))
 
-    const getTransactions = async() => {
-        await fetch('/api/fetchTransactions',{
-            method: 'GET',
-            headers: {
-            'Content-Type': 'application/json'
-            },
-        }).then(async(res:Response)=>{
-            let getTransactions = await res.json()
-            if(getTransactions.length<=0){
-                modal.setShowModal((prev)=>true)
-            }else{
-                setTransactions(getTransactions)
-            }
-        })
-    }
+    
 
     useEffect(() => {
         // runs twice in dev
+        const getTransactions = async() => {
+            await fetch('/api/fetchTransactions',{
+                method: 'GET',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+            }).then(async(res:Response)=>{
+                let getTransactions = await res.json()
+                if(getTransactions.length<=0){
+                    modal.current.setShowModal((prev)=>true)
+                }else{
+                    setTransactions(getTransactions)
+                }
+            })
+        }
         getTransactions()
         const interval = setInterval(getTransactions, 3000);
         return () => clearInterval(interval);
@@ -37,7 +38,7 @@ function Transactions() {
                 <div className="font-medium text-base">Latest Transactions</div>
                 {
                     transactions.length>0?transactions.map((transaction)=>
-                    <TransactionRow transaction={transaction}/>
+                    <TransactionRow key={transaction.name+Math.random().toString()} transaction={transaction}/>
                     ):
                     <small>Start by adding a transaction</small>
                 }

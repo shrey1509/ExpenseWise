@@ -31,8 +31,8 @@ function MainComponent({children}:{children:any}) {
         <ModalContext.Provider value={{showModal,setShowModal}}>
             {children}
             <CreateTransactionModal/>
-            <div onClick={()=>setShowModal((prev)=>true)} className=" cursor-pointer rounded-full shadow-lg bg-secondary text-white px-6 py-3 fixed bottom-16 right-16">
-                + Add new transaction
+            <div onClick={()=>setShowModal((prev)=>true)} className=" cursor-pointer flex rounded-full shadow-lg bg-secondary text-white px-4 py-2 xl:px-6 xl:py-3 fixed bottom-8 xl:bottom-12 right-8 xl:right-16">
+                + <span className=" hidden xl:block">Add new transaction</span>
             </div>
         </ModalContext.Provider>
     );

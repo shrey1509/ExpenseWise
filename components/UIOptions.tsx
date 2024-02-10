@@ -2,7 +2,7 @@ import { ApexOptions } from 'apexcharts';
 
 export const defaultChartOptions: ApexOptions = {
     chart: {
-      height: 350,
+      height: 250,
       type: 'area',
     },
     dataLabels: {

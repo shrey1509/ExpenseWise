@@ -16,7 +16,7 @@ const config: Config = {
       },
       spacing:{
         'default':'40px',
-        'defaultMobile':'20px'
+        'defaultMobile':'10px'
       },
     },
   },

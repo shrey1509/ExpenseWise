@@ -6,10 +6,9 @@ import "react-datetime/css/react-datetime.css";
 
 function CreateTransactionModal() {
     const modal = useContext(ModalContext);
-    const defaultInputs = {name:"",amount:0,category:"GE",type:"sent",date:new Date(),description:""}
+    const defaultInputs = {name:"",amount:0,category:"General",type:"sent",date:new Date(),description:""}
     const [transactionInputs, setTransactionInputs] = useState(defaultInputs);
     const [errorFor, setErrorFor] = useState({name:false,amount:false});
-    const [showDate,setShowDate] = useState(false)
 
     const handleChange = (name:string,value:any) => {
         setTransactionInputs(values => ({...values, [name]: value}))

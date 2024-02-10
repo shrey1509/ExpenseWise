@@ -33,42 +33,38 @@ To get a local copy up and running follow these simple example steps.
 
 * npm
 
-  ```sh
-
+```sh
   npm install npm@latest -g
-
-  ```
+```
 
 ### Installation
 
 
 1. Clone the repo
 
-   ```sh
-
+```sh
    git clone https://github.com/your_username_/Project-Name.git
-
-   ```
+```
 
 2. Go into server folder and install packages
 
-    ```sh
+```sh
    cd server
-   ```
+```
 
-   ```sh
+```sh
    npm install
-   ```
+```
 
 3. Open another terminal and do the same for client
 
-      ```sh
+```sh
    cd client
-   ```
+```
 
-   ```sh
+```sh
    npm install
-   ```
+```
 
 <!-- USAGE EXAMPLES -->
 
@@ -76,19 +72,15 @@ To get a local copy up and running follow these simple example steps.
 
 1. Run the Express server from server terminal
 
-   ```sh
-
+```sh
    npm start
-
-   ```
+```
 
 2. Run the NextJS app from client terminal
 
-   ```sh
-
+```sh
    npm run dev
-
-   ```
+```
 
 3. Add transactions and check stats
 

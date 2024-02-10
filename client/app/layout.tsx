@@ -26,13 +26,16 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${poppins.className} w-screen h-screen overflow-hidden bg-lightBg`}>
         <header className=" fixed w-full block xl:hidden p-defaultMobile xl:p-default z-50">
+          {/* For Mobile */}
           <Header />
         </header>
         <div className=" flex w-full h-full">
           <nav className=" h-full hidden xl:block xl:w-1/4 2xl:w-1/5 text-darkBg">
+            {/* For Desktop */}
             <Navbar />
           </nav>
           <main className=" pt-20 p-defaultMobile xl:p-default w-full">
+            {/* Wrapped in a client component for context use */}
             <MainComponent>
               {children}
             </MainComponent>

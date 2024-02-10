@@ -1,5 +1,8 @@
 import { ApexOptions } from 'apexcharts';
 
+
+// to help with setting charts
+
 export const defaultChartOptions: ApexOptions = {
     chart: {
       height: 250,

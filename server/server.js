@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 
 const dataFilePath = path.join(process.cwd(), 'db.json');
 
+// Adding a new transaction
 app.post('/createTransaction', async(req, res) => {
     const jsonData = await fsPromises.readFile(dataFilePath);
     const objectData = JSON.parse(jsonData);
@@ -18,12 +19,14 @@ app.post('/createTransaction', async(req, res) => {
     res.json({"msg":"Transaction added"});
 });
 
+// For transactions page
 app.get('/fetchTransactions', async(req, res) => {
     const jsonData = await fsPromises.readFile(dataFilePath);
     const objectData = JSON.parse(jsonData);
     res.json(objectData.transactions.reverse());
 });
 
+// For overview dashboard
 app.get('/fetchOverview', async(req, res) => {
     const jsonData = await fsPromises.readFile(dataFilePath);
     const objectData = JSON.parse(jsonData);

@@ -35,7 +35,7 @@ function Transactions() {
     return (
         <div className=" grid grid-cols-3 gap-4 h-full overflow-y-auto xl:pr-2" id="custom-scroll">
             <div className="box flex flex-col gap-2 p-6 text-sm col-span-3">
-                <div className="font-medium text-base">Latest Transactions</div>
+                <div className="font-medium text-base">All Transactions</div>
                 {
                     transactions.length>0?transactions.map((transaction)=>
                     <TransactionRow key={transaction.name+Math.random().toString()} transaction={transaction}/>

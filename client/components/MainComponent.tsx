@@ -2,6 +2,7 @@
 import { useState,createContext } from "react";
 import CreateTransactionModal from "./CreateTransactionModal";
 
+// to use with any transaction
 export type TransactionType = {
     name: string,
     amount: string,
@@ -21,6 +22,7 @@ const ModalDefault = {
     setShowModal: () => {},
 }
 
+// to make modal available globally
 export const ModalContext = createContext<ModalType>(ModalDefault);
 
 

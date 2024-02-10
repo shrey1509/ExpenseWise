@@ -8,15 +8,19 @@ import { TransactionType } from "@/components/MainComponent";
 import { ModalContext } from "@/components/MainComponent";
 import TransactionRow from "@/components/TransactionRow";
 import { useRouter } from "next/navigation";
+// To avoid SSR conflicts
 import useScreenSize from "@/components/hooks/MobileDetect";
 
+// Wrapped in useRef to avoid on load conflicts
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 export default function Home() {
   const [overviewStats,setOverviewStats] = useState({monthlyIncome:0,monthlyExpenses:0,monthlyProfit:0})
   const [transactions,setTransactions] = useState<TransactionType[]>([])
   const router = useRouter()
+  // Custom hook to detect screen size
   const modal = useRef(useContext(ModalContext))
+  // Apex chart setters
   const currentDevice = useScreenSize()
 
   const [transactionStats, setTransactionStats] = useState<{ series: ChartSeries; options: ApexOptions }>({
@@ -52,6 +56,7 @@ export default function Home() {
         })
     }
     getOverview()
+    // To keep fetching data
     const interval = setInterval(getOverview, 3000);
     return () => clearInterval(interval);
   }, []);

@@ -43,7 +43,7 @@ To get a local copy up and running follow these simple steps.
 1. Clone the repo
 
 ```sh
-     npm install npm@latest -g
+     https://github.com/shrey1509/ExpenseWise.git
 ```
 
 2. Go into server folder and install packages

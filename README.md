@@ -27,7 +27,7 @@ ExpenseWise is a simple personal finance tracking, to add transactions and track
 
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
@@ -43,7 +43,7 @@ To get a local copy up and running follow these simple example steps.
 1. Clone the repo
 
 ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+     npm install npm@latest -g
 ```
 
 2. Go into server folder and install packages
